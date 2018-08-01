@@ -1,0 +1,66 @@
+body {
+    background-color: #4CC0AD !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.page {
+    margin-top: 100px;
+}
+
+h1 {
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 3rem !important;
+}
+
+h2 {
+    color: white !important;
+    font-weight: 400 !important;
+    margin-top: 50px !important;
+    font-size: 2.5rem !important;
+}
+
+h3 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+}
+
+h4 {
+    font-size: 1.5rem !important;
+}
+
+p {
+    font-size: 1rem !important;
+    margin-top: 10px !important;
+    margin-bottom: inherit !important;
+}
+
+.station {
+    margin-top: 50px !important;
+    font-size: 1.5rem !important;
+}
+
+.input-group {
+    display: block !important;
+}
+
+label {
+    color: white !important;
+    margin-top: 2rem !important;
+    font-size: 1.30rem !important;
+}
+
+input.form-control {
+    margin-top: 1.5rem !important;
+    height: 4rem !important;
+    width: 100% !important;
+}
+
+input.form-control::-webkit-input-placeholder {
+    font-size: 13px !important;
+  }
+
+.btn {
+    margin-top: 2rem !important;
+}
