@@ -9,7 +9,7 @@ const Select = (props) => {
                     onClick={props.handleChange}
                 >
                     <option value="metros" defaultValue>Cliquez puis sélectionner</option> 
-                    <option value="metros" defaultValue>Métros</option> 
+                    <option value="metros">Métros</option> 
                     <option value="bus">Bus</option>
                     <option value="rers">Rers</option>
                     <option value="tramways">Tramways</option>
