@@ -64,3 +64,12 @@ input.form-control::-webkit-input-placeholder {
 .btn {
     margin-top: 2rem !important;
 }
+
+#select-control {
+    display: block;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 2rem;
+    padding: 0.375rem 0.75rem;
+}

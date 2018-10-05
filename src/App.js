@@ -1,35 +1,59 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import axios from 'axios';
-import Info from './Info'
-import Input from './Input'
+import Info from './Info';
+import Select from './Select';
+import Input from './Input';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
-
-    state = {
-        json : {},
-        dataInput : ""
+    constructor(props) {
+        super(props);
+        this.state = {
+            json: {},
+            dataInput: "",
+            selectValue: "",
+            selectInput: "",
+        }
     }
 
-    getDataFromInput = (evt) => {
+    dataFromInput = (evt) => {
         this.setState({
           dataInput: evt.target.value,
         })
     }
 
-    clickBtn = () => {
-        this.getDataFromApi();
+    clickButton = () => {
+        this.dataFromApi();
     }
 
-    getDataFromApi = () => {
-        axios.get(`https://api-ratp.pierre-grimaud.fr/v3/schedules/metros/6/${this.state.dataInput === "" ? "dupleix" : this.state.dataInput}/A+R`)
+    dataFromSelectInput = (evt) => {
+        this.setState({
+            selectInput: evt.target.value,
+        })
+    }
+
+    dataFromSelectValue = (e) => {
+        this.setState({
+            selectValue: e.target.value,
+        }), function() {
+            this.props.onChange(this.state.selectValue);
+        }
+    }
+
+    handleSelectChange = (event) => {
+        this.setState({
+          selectValue: event.target.value
+        })
+    }
+
+    dataFromApi = () => {
+        axios.get(`https://api-ratp.pierre-grimaud.fr/v3/schedules/${this.state.selectValue}/${this.state.selectInput}/${this.state.dataInput === "" ? "dupleix" : this.state.dataInput}/A+R`)
         .then((response) => {
             console.log(response);
             this.setState({
             json : response.data.result.schedules 
             }, () => {
-            console.log(this.state.json)
             })
         })
         .catch((error) => { // handle error
@@ -41,7 +65,7 @@ class App extends Component {
         if(this.state.json[0]) {
           return (
             <div>
-              <Info station= {this.state.dataInput === "" ? "Dupleix" : this.state.dataInput} data={this.state.json}/>
+              <Info transport={this.state.selectValue} station={this.state.dataInput === "" ? "Dupleix" : this.state.dataInput} data={this.state.json}/>
             </div>
           )
         }
@@ -51,9 +75,10 @@ class App extends Component {
         return (
             <div className="container">
                 <div className="page">
-                    <h1 className="text-center">Horaires Métro Ligne 6 RATP</h1>
+                    <h1 className="text-center">Horaires RATP</h1>
                     <h2>Recherchez un horaire</h2>
-                    <Input btnF={this.clickBtn} input={this.getDataFromInput}/>
+                    <Select selectInput={this.dataFromSelectInput} handleChange={this.handleSelectChange} />
+                    <Input button={this.clickButton} input={this.dataFromInput} />
                     {this.beforeRender()}
                 </div>
             </div>
