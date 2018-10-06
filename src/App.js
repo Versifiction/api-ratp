@@ -19,7 +19,7 @@ class App extends Component {
 
     dataFromInput = (evt) => {
         this.setState({
-          dataInput: evt.target.value,
+          dataInput: evt.target.value.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, ""),
         })
     }
 
@@ -29,7 +29,7 @@ class App extends Component {
 
     dataFromSelectInput = (evt) => {
         this.setState({
-            selectInput: evt.target.value,
+            selectInput: evt.target.value.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, ""),
         })
     }
 

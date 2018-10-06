@@ -14,7 +14,9 @@ const Input = (props) => {
                 />
                 <button 
                     onClick={props.button} 
-                    className="btn btn-primary">Rechercher</button>
+                    className="btn btn-primary">Rechercher
+                </button>
+                <p className="info">*Les résultats s'afficheront en dessous de ce paragraphe</p>
             </div>
     )
 }

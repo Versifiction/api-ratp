@@ -8,7 +8,7 @@ const Select = (props) => {
                     id="select-control"
                     onClick={props.handleChange}
                 >
-                    <option value="metros" defaultValue>Cliquez puis sélectionner</option> 
+                    <option value="default" defaultValue>Cliquez puis sélectionner</option> 
                     <option value="metros">Métros</option> 
                     <option value="bus">Bus</option>
                     <option value="rers">Rers</option>
