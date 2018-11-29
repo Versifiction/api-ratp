@@ -1,21 +1,27 @@
 body {
-    background-color: #4CC0AD !important;
+    background-image: url(../images/quai.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Lato', sans-serif !important;
     color: inherit !important;
 }
 
 .page {
     margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 6rem 6rem;
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 h1 {
-    color: white !important;
+    color: #4CC0AD !important;
     font-weight: 700 !important;
     font-size: 3rem !important;
 }
 
 h2 {
-    color: white !important;
+    color: #4CC0AD !important;
     font-weight: 400 !important;
     margin-top: 50px !important;
     font-size: 2.5rem !important;
@@ -25,18 +31,18 @@ h3 {
     font-size: 2rem !important;
     font-weight: 700 !important;
     margin-bottom: 20px !important;
-    color: white;
+    color: #4CC0AD !important;;
 }
 
 h4 {
     font-size: 1.5rem !important;
     text-transform: uppercase;
-    color: white;
+    color: #4CC0AD !important;;
 }
 
 h5 {
     font-size: 1rem;
-    color: white;
+    color: #4CC0AD !important;;
 }
 
 p {
@@ -54,7 +60,7 @@ p {
 }
 
 label {
-    color: white !important;
+    color: #4CC0AD !important;
     margin-top: 2rem !important;
     font-size: 1.30rem !important;
 }
@@ -63,6 +69,7 @@ input.form-control {
     margin-top: 1.5rem !important;
     height: 4rem !important;
     width: 100% !important;
+    border: 1px solid #4CC0AD;
 }
 
 input.form-control::-webkit-input-placeholder {
@@ -72,10 +79,11 @@ input.form-control::-webkit-input-placeholder {
 #select-control {
     display: block;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #4CC0AD;
+    border-color: #4CC0AD;
     margin-top: 2rem;
     padding: 0.375rem 0.75rem;
+    cursor: pointer;
 }
 
 .results {
@@ -84,7 +92,7 @@ input.form-control::-webkit-input-placeholder {
 }
 
 .info {
-    color: white;
+    color: #4CC0AD;
     font-size: 0.4rem;
     font-style: italic;
     font-weight: bold;
@@ -92,4 +100,20 @@ input.form-control::-webkit-input-placeholder {
 
 .btn {
     margin-top: 3rem !important;
+    background-color: #4CC0AD;
+    color: white;
+    border-radius: inherit !important;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    .page {
+        padding: 4rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .page {
+        padding: 2rem;
+    }
 }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Info from './Info';
 import Select from './Select';
 import Input from './Input';
+import Button from './Button';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
             dataInput: "",
             selectValue: "",
             selectInput: "",
+            searchActive: false,
         }
     }
 
@@ -25,6 +27,9 @@ class App extends Component {
 
     clickButton = () => {
         this.dataFromApi();
+        this.setState({
+            searchActive: true,
+        });
     }
 
     dataFromSelectInput = (evt) => {
@@ -52,7 +57,7 @@ class App extends Component {
         .then((response) => {
             console.log(response);
             this.setState({
-            json : response.data.result.schedules 
+            json : response.data.result.schedules
             }, () => {
             })
         })
@@ -65,21 +70,42 @@ class App extends Component {
         if(this.state.json[0]) {
           return (
             <div>
-              <Info transport={this.state.selectValue} station={this.state.dataInput === "" ? "Dupleix" : this.state.dataInput} data={this.state.json}/>
+              <Info transport={this.state.selectValue} station={this.state.dataInput === "" ? "Dupleix" : this.state.dataInput} data={this.state.json} />
             </div>
           )
         }
     }
 
+    resetSearch = (evt) => {
+        this.setState({
+            json: {},
+            dataInput: "",
+            selectValue: "",
+            selectInput: "",
+            searchActive: false,
+        });
+    }
+
     render () {
+        const { searchActive } = this.state;
         return (
             <div className="container">
                 <div className="page">
                     <h1 className="text-center">Horaires RATP</h1>
-                    <h2>Recherchez un horaire</h2>
-                    <Select selectInput={this.dataFromSelectInput} handleChange={this.handleSelectChange} />
-                    <Input button={this.clickButton} input={this.dataFromInput} />
+                    {!searchActive &&
+                        <Select selectInput={this.dataFromSelectInput} handleChange={this.handleSelectChange} />
+                    }
+                    {!searchActive &&
+                        <Input button={this.clickButton} input={this.dataFromInput} />
+                    }
                     {this.beforeRender()}
+                    {searchActive &&
+                        <Button
+                        button={this.resetSearch}
+                        className="btn"
+                        value="Faire une nouvelle recherche"
+                        />
+                    }
                 </div>
             </div>
         )

@@ -9,7 +9,7 @@ const Info = (props) => {
                     <div className="col-xs-12 col-sm-12 col-md-6 results">
                         <h4>Direction : {props.data[0].destination}</h4>
                         <h5>Prochain : {props.data[0].message}</h5>
-                        {props.transport !== "rers" && 
+                        {props.transport !== "rers" &&
                         <h5>Suivant : {props.data[1].message}</h5>
                         }
                     </div>
@@ -23,21 +23,21 @@ const Info = (props) => {
                         <h4>Direction : {props.transport === "metros" && props.data[4].destination
                         || props.transport === "bus" && props.data[2].destination
                         || props.transport === "tramways" && props.data[2].destination
-                        || props.transport === "noctiliens" && props.data[2].destination 
+                        || props.transport === "noctiliens" && props.data[2].destination
                         || props.transport === "rers" && props.data[6].destination}</h4>
                         <h5>Prochain : {props.transport === "metros" && props.data[4].message
                         || props.transport === "bus" && props.data[2].message
                         || props.transport === "tramways" && props.data[2].message
                         || props.transport === "noctiliens" && props.data[2].message
                         || props.transport === "rers" && props.data[6].message}</h5>
-                        {props.transport !== "rers" && 
+                        {props.transport !== "rers" &&
                         <h5>Suivant : {props.transport === "metros" && props.data[5].message
                         || props.transport === "bus" && props.data[3].message
                         || props.transport === "tramways" && props.data[3].message
                         || props.transport === "noctiliens" && props.data[3].message
                         || props.transport === "rers" && props.data[6].message}</h5>
                         }
-                    </div>                            
+                    </div>
                     }
                     {props.transport === "rers" &&
                     <div className="col-xs-12 col-sm-12 col-md-6 results">

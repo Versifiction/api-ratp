@@ -1,22 +1,23 @@
 import React from 'react'
+import Button from './Button';
 
 const Input = (props) => {
     return (
             <div className="input-group input-group-sm mb-3">
                 <label htmlFor="form-control">Saisissez le nom d'une station</label>
-                <input 
-                    onChange={props.input} 
-                    type="text" 
-                    className="form-control" 
-                    aria-label="Default" 
-                    aria-describedby="inputGroup-sizing-default" 
+                <input
+                    onChange={props.input}
+                    type="text"
+                    className="form-control"
+                    aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default"
                     placeholder="Nom de la station"
                 />
-                <button 
-                    onClick={props.button} 
-                    className="btn btn-primary">Rechercher
-                </button>
-                <p className="info">*Les résultats s'afficheront en dessous de ce paragraphe</p>
+                <Button
+                    button={props.button}
+                    className="btn"
+                    value="Rechercher"
+                />
             </div>
     )
 }
