@@ -1,112 +1,29 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './css/App.css';
-import axios from 'axios';
-import Info from './Info';
-import Select from './Select';
-import Input from './Input';
-import Button from './Button';
+import Accueil from '../src/Components/Pages/Accueil';
+import Horaires from '../src/Components/Pages/Horaires';
+import Trafic from '../src/Components/Pages/Trafic';
+import Stations from '../src/Components/Pages/Stations';
+import Plans from '../src/Components/Pages/Plans';
+import Apropos from '../src/Components/Pages/Apropos';
+import Erreur from '../src/Components/Pages/Erreur';
+// eslint-disable-next-line
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            json: {},
-            dataInput: "",
-            selectValue: "",
-            selectInput: "",
-            searchActive: false,
-        }
-    }
-
-    dataFromInput = (evt) => {
-        this.setState({
-          dataInput: evt.target.value.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, ""),
-        })
-    }
-
-    clickButton = () => {
-        this.dataFromApi();
-        this.setState({
-            searchActive: true,
-        });
-    }
-
-    dataFromSelectInput = (evt) => {
-        this.setState({
-            selectInput: evt.target.value.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, ""),
-        })
-    }
-
-    dataFromSelectValue = (e) => {
-        this.setState({
-            selectValue: e.target.value,
-        }), function() {
-            this.props.onChange(this.state.selectValue);
-        }
-    }
-
-    handleSelectChange = (event) => {
-        this.setState({
-          selectValue: event.target.value
-        })
-    }
-
-    dataFromApi = () => {
-        axios.get(`https://api-ratp.pierre-grimaud.fr/v3/schedules/${this.state.selectValue}/${this.state.selectInput}/${this.state.dataInput === "" ? "dupleix" : this.state.dataInput}/A+R`)
-        .then((response) => {
-            console.log(response);
-            this.setState({
-            json : response.data.result.schedules
-            }, () => {
-            })
-        })
-        .catch((error) => { // handle error
-            console.log(error);
-        })
-    }
-
-    beforeRender = () => {
-        if(this.state.json[0]) {
-          return (
-            <div>
-              <Info transport={this.state.selectValue} station={this.state.dataInput === "" ? "Dupleix" : this.state.dataInput} data={this.state.json} />
-            </div>
-          )
-        }
-    }
-
-    resetSearch = (evt) => {
-        this.setState({
-            json: {},
-            dataInput: "",
-            selectValue: "",
-            selectInput: "",
-            searchActive: false,
-        });
-    }
-
     render () {
-        const { searchActive } = this.state;
         return (
-            <div className="container">
-                <div className="page">
-                    <h1 className="text-center">Horaires RATP</h1>
-                    {!searchActive &&
-                        <Select selectInput={this.dataFromSelectInput} handleChange={this.handleSelectChange} />
-                    }
-                    {!searchActive &&
-                        <Input button={this.clickButton} input={this.dataFromInput} />
-                    }
-                    {this.beforeRender()}
-                    {searchActive &&
-                        <Button
-                        button={this.resetSearch}
-                        className="btn"
-                        value="Faire une nouvelle recherche"
-                        />
-                    }
-                </div>
+            <div className="app">
+                <Switch>
+                    <Route path='/' exact component={ Accueil } />
+                    <Route path='/horaires' exact component={ Horaires } />
+                    <Route path='/trafic' exact component={ Trafic } />
+                    <Route path='/stations' exact component={ Stations } />
+                    <Route path='/plans' exact component={ Plans } />
+                    <Route path='/a-propos' exact component={ Apropos } />
+                    <Route component={ Erreur } />
+                </Switch>
             </div>
         )
     }

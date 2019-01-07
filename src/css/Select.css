@@ -1,0 +1,15 @@
+#select-control {
+    display: block;
+    color: #fff;
+    background-color: #050D9E;
+    border-color: #050D9E;
+    font-size: 1.125rem;
+    padding: 0.375rem 0.75rem;
+    cursor: pointer;
+    display: table;
+    border-radius: 5px;
+    line-height: 1.35;
+    margin-bottom: .625rem;
+    padding: 1rem 1.5rem;
+    position: relative;
+}

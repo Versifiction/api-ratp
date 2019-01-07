@@ -2,52 +2,76 @@ body {
     background-image: url(../images/quai.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Ubuntu', sans-serif !important;
     color: inherit !important;
 }
 
 .page {
     margin-top: 100px;
     margin-bottom: 100px;
-    padding: 6rem 6rem;
+    padding: 4rem 4rem;
     background-color: white;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
+.content {
+    padding-top: 4rem;
+}
+
+h1, h3, h4, h5, .info {
+    color: #050D9E !important;
+}
+
 h1 {
-    color: #4CC0AD !important;
     font-weight: 700 !important;
     font-size: 3rem !important;
+    margin-bottom: 2rem !important;
 }
 
 h2 {
-    color: #4CC0AD !important;
     font-weight: 400 !important;
     margin-top: 50px !important;
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
+    color: white !important;
 }
 
 h3 {
     font-size: 2rem !important;
     font-weight: 700 !important;
     margin-bottom: 20px !important;
-    color: #4CC0AD !important;;
 }
 
 h4 {
     font-size: 1.5rem !important;
     text-transform: uppercase;
-    color: #4CC0AD !important;;
 }
 
 h5 {
     font-size: 1rem;
-    color: #4CC0AD !important;;
 }
 
 p {
-    font-size: 1rem !important;
     margin-top: 10px !important;
+}
+
+a {
+    color: inherit !important;
+}
+
+nav a:hover {
+    color: #050D9E !important;
+}
+
+.content a:hover {
+    text-decoration: inherit !important;
+}
+
+li.nav-item {
+    margin-left: 0.5rem;
+}
+
+.content-description {
+    font-size: 1.5rem !important;
 }
 
 .station {
@@ -55,65 +79,114 @@ p {
     font-size: 1.5rem !important;
 }
 
-.input-group {
-    display: block !important;
-}
-
-label {
-    color: #4CC0AD !important;
-    margin-top: 2rem !important;
-    font-size: 1.30rem !important;
-}
-
-input.form-control {
-    margin-top: 1.5rem !important;
-    height: 4rem !important;
-    width: 100% !important;
-    border: 1px solid #4CC0AD;
-}
-
-input.form-control::-webkit-input-placeholder {
-    font-size: 13px !important;
-  }
-
-#select-control {
-    display: block;
-    color: #fff;
-    background-color: #4CC0AD;
-    border-color: #4CC0AD;
-    margin-top: 2rem;
-    padding: 0.375rem 0.75rem;
-    cursor: pointer;
-}
-
 .results {
     margin-bottom: 1rem;
-
 }
 
 .info {
-    color: #4CC0AD;
     font-size: 0.4rem;
     font-style: italic;
     font-weight: bold;
 }
 
-.btn {
-    margin-top: 3rem !important;
-    background-color: #4CC0AD;
-    color: white;
-    border-radius: inherit !important;
+.nav-item:hover {
     cursor: pointer;
+}
+
+img.media-object {
+    width: 50px;
+}
+
+.media {
+    margin-bottom: 2rem;
+}
+
+.media-body {
+    margin-left: 1rem;
+}
+
+.trafic-transport-img {
+    width: 75px;
+    margin-bottom: 2rem;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.fas {
+    margin-left: 0.5rem;
+}
+
+.accueil-horaires, .accueil-stations, .accueil-trafic, .accueil-plans {
+    width: 100%;
+    padding: 2rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.accueil-bloc::after {
+    height: 100px;
+    width: 100px;
+    background-size: 100px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    opacity: .05;
+    z-index: 1;
+}
+
+.accueil-horaires {
+    background-color: #7f5d38;
+}
+
+.accueil-horaires:hover, .accueil-stations:hover, .accueil-trafic:hover {
+    opacity: 0.8;
+}
+
+.accueil-horaires::after {
+    background-image: url('../images/horaires.png');
+}
+
+.accueil-stations {
+    background-color: #0062a1;
+}
+
+.accueil-stations::after {
+    background-image: url('../images/stations.png');
+}
+
+.accueil-trafic {
+    background-color: #572a79;
+}
+
+.accueil-trafic::after {
+    background-image: url('../images/trafic.png');
+}
+
+.accueil-plans {
+    background-color: #86881d;
+}
+
+.accueil-plans::after {
+    background-image: url('../images/plans.png');
 }
 
 @media screen and (max-width: 640px) {
     .page {
-        padding: 4rem;
+        padding: 2rem;
     }
 }
 
 @media screen and (max-width: 400px) {
     .page {
-        padding: 2rem;
+        padding: 1rem;
     }
 }

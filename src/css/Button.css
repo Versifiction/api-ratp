@@ -1,0 +1,21 @@
+.my-btn {
+    margin-top: 3rem !important;
+    background-color: #050D9E;
+    color: #fff;
+    display: block;
+    font-size: 1.5rem !important;
+    border-radius: 5px !important;;
+    line-height: 1.35;
+    margin-bottom: .625rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 1.5rem 2rem;
+    position: relative;
+    border: 0px;
+    cursor: pointer;
+}
+
+.button:hover {
+    text-decoration: underline;
+    color: white;
+}
