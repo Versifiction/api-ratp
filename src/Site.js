@@ -5,7 +5,7 @@ import App from './App';
 class Site extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <App />
       </Router>
     );
